@@ -1,24 +1,45 @@
 import reflex as rx
 from rxconfig import config
 from .model.modelNotes import Notes,Level
+from appNotes.component.formNewNotes import formNewNotes
+from datetime import datetime
+from .component.toastNotes import toastNotes
+from .states.notesStates import *
 
-class State(rx.State):
-    """The app state."""
+# class State(rx.State):
+#     """The app state."""
 
 
 def index() -> rx.Component:
     # Welcome Page (Index)
     return rx.box(
-        rx.heading(
-            'Notes',
-            width='auto|auto',
-            size='9',
-            align='left',
-            color_scheme='amber',
-            font_family='Comic Relief',
-            sticky='left',
-            margin='20px'
+        rx.hstack(
+            rx.heading(
+                'Notes',
+                width='auto|auto',
+                size='9',
+                align='left',
+                color_scheme='amber',
+                font_family='Comic Relief',
+                sticky='left',
+                margin='20px'
+            ),
+            rx.dialog.root(
+                rx.dialog.trigger(rx.button("Nueva Nota"), class_name='buttom'),
+                rx.dialog.content(
+                    rx.dialog.title("Insertar nueva Nota"),
+                    rx.dialog.description(
+                        
+                        formNewNotes()
+                    ),
+                    rx.dialog.close(
+                        rx.button("Insertar Nota", size="3", class_name='buttom', on_click=toastNotes
+                        ),
+                    ),
+                ),
+            ),
         ),
+        rx.divider(),
         rx.box(
             rx.box(
                 'NOTAS',
