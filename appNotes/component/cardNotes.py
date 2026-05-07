@@ -1,0 +1,28 @@
+import reflex as rx
+from ..model.modelNotes import Notes
+from ..states.notesStates import NotesStates
+
+
+def cardNotes(notes: Notes) -> rx.Component:
+    return rx.card(
+        rx.vstack(
+            rx.text(
+                notes.date
+            ),
+            rx.divider(),
+            rx.hstack(
+            rx.text(
+                notes.note
+            ),
+            
+            rx.button(
+                'Eliminar nota...',
+                on_click=NotesStates.deleteNotes(notes.id),
+                class_name='buttom'
+                
+            ),
+            justify='between',
+            width='100%'
+            )
+        )
+    )

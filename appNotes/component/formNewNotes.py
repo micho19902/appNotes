@@ -1,9 +1,11 @@
 import reflex as rx
 from ..model.modelNotes import Notes
 from ..states.notesStates import NotesStates
+from datetime import datetime
 
 
 def formNewNotes() -> rx.Component:
+    fecha = datetime.now()
     return rx.box(
         rx.text(
             'Nota'
@@ -13,5 +15,9 @@ def formNewNotes() -> rx.Component:
             value=NotesStates.note,
             margin='20px',
             on_change=NotesStates.set_note
+        ),
+        rx.hstack(
+            rx.text('Fecha'),
+            print(fecha)
         )
     )

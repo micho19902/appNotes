@@ -5,6 +5,7 @@ from appNotes.component.formNewNotes import formNewNotes
 from datetime import datetime
 from .component.toastNotes import toastNotes
 from .states.notesStates import *
+from .component.cardNotes import cardNotes
 
 # class State(rx.State):
 #     """The app state."""
@@ -42,15 +43,11 @@ def index() -> rx.Component:
         rx.divider(),
         rx.box(
             rx.box(
-                'NOTAS',
-                # color='white'
-                class_name='cardNotes'
-            ),
-            rx.box(
-                'NOTAS',
-                # color='white'
-                class_name='cardNotes'
+                rx.foreach(
+                    NotesStates.notes,
+                    cardNotes
 
+                )
             ),
             
         ),

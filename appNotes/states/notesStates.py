@@ -18,7 +18,7 @@ class NotesStates(rx.State):
     def load_notes(self):
         with rx.session() as session:
             self.notes = session.exec(select(Notes)).all()
-            print(self.notes)
+            # print(self.notes)
 
 
     def insertNotes(self):
@@ -46,3 +46,21 @@ class NotesStates(rx.State):
                                 },
                             )
         
+    def deleteNotes(self, id: int):
+        with rx.session() as session:
+            noteId = session.get(Notes, id)
+            if noteId:
+                session.delete(noteId)
+                session.commit()
+                self.load_notes()
+        
+        return rx.toast(
+                                "Nota Eliminada!",
+                                position="top-right",
+                                style={
+                                    "background-color": "red",
+                                    "color": "white",
+                                    "border": "1px solid red",
+                                    "border-radius": "0.53m",
+                                },
+                            )
