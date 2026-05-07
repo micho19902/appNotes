@@ -13,13 +13,29 @@ def index() -> rx.Component:
             'Notes',
             width='auto|auto',
             size='9',
-            align='center',
+            align='left',
             color_scheme='amber',
             font_family='Comic Relief',
+            sticky='left',
+            margin='20px'
+        ),
+        rx.box(
+            rx.box(
+                'NOTAS',
+                # color='white'
+                class_name='cardNotes'
+            ),
+            rx.box(
+                'NOTAS',
+                # color='white'
+                class_name='cardNotes'
+
+            ),
+            
         ),
         # bg="#1A0126",
-        width='auto|auto',
-        padding='20px'
+        # width='100px|auto',
+        padding='20px',
         # background="#702626"
 
     ),
@@ -30,7 +46,8 @@ app = rx.App(style={
     'background_color': "#110218"
     },
     stylesheets=[
-        'https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap'
+        'https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap',
+        './styles/styles.css'
 
         ]
     
