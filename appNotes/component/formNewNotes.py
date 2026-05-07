@@ -12,6 +12,6 @@ def formNewNotes() -> rx.Component:
             placeholder='Insertar Nota...',
             value=NotesStates.note,
             margin='20px',
-            on_change=NotesStates.set_note(NotesStates.note)
+            on_change=NotesStates.set_note
         )
     )

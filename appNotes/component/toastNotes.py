@@ -10,4 +10,4 @@ def toastNotes() -> rx.Component:
                                     "border": "1px solid green",
                                     "border-radius": "0.53m",
                                 },
-                            ),
+                            )
