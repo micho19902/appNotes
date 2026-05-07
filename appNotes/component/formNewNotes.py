@@ -1,5 +1,6 @@
 import reflex as rx
 from ..model.modelNotes import Notes
+from ..states.notesStates import NotesStates
 
 
 def formNewNotes() -> rx.Component:
@@ -9,6 +10,8 @@ def formNewNotes() -> rx.Component:
         ),
         rx.text_area(
             placeholder='Insertar Nota...',
-            margin='20px'
+            value=NotesStates.note,
+            margin='20px',
+            on_change=NotesStates.set_note(NotesStates.note)
         )
     )

@@ -33,7 +33,7 @@ def index() -> rx.Component:
                         formNewNotes()
                     ),
                     rx.dialog.close(
-                        rx.button("Insertar Nota", size="3", class_name='buttom', on_click=toastNotes
+                        rx.button("Insertar Nota", size="3", class_name='buttom', on_click=NotesStates.insertNotes
                         ),
                     ),
                 ),
