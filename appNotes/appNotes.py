@@ -26,7 +26,10 @@ def index() -> rx.Component:
                 margin='20px'
             ),
             rx.dialog.root(
-                rx.dialog.trigger(rx.button("Nueva Nota"), class_name='buttom'),
+                rx.dialog.trigger(rx.button(
+                    rx.icon(tag='plus'),
+                    class_name='buttom'
+                    ), ),
                 rx.dialog.content(
                     rx.dialog.title("Insertar nueva Nota"),
                     rx.dialog.description(
@@ -39,6 +42,9 @@ def index() -> rx.Component:
                     ),
                 ),
             ),
+            justify='between',
+            width='100%',
+            align='center'
         ),
         rx.divider(),
         rx.box(

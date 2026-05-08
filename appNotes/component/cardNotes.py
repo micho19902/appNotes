@@ -4,7 +4,7 @@ from ..states.notesStates import NotesStates
 
 
 def cardNotes(notes: Notes) -> rx.Component:
-    return rx.card(
+    return rx.box(
         rx.vstack(
             rx.text(
                 notes.date
@@ -23,6 +23,8 @@ def cardNotes(notes: Notes) -> rx.Component:
             ),
             justify='between',
             width='100%'
+            
             )
-        )
+        ),
+        class_name='cardNotes'
     )

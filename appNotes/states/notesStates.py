@@ -37,7 +37,7 @@ class NotesStates(rx.State):
         
         return rx.toast(
                                 "Nota Insertada!",
-                                position="top-right",
+                                position="bottom-right",
                                 style={
                                     "background-color": "green",
                                     "color": "white",
@@ -56,7 +56,7 @@ class NotesStates(rx.State):
         
         return rx.toast(
                                 "Nota Eliminada!",
-                                position="top-right",
+                                position="bottom-right",
                                 style={
                                     "background-color": "red",
                                     "color": "white",
