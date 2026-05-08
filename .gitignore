@@ -5,4 +5,4 @@ __pycache__/
 assets/external/
 *.py[cod]
 __pycache__
-.env
+.venv

@@ -2,28 +2,28 @@ FROM python:3.14.4
 
 WORKDIR /app
 
-ARG NODE_VERSION=20.x
+# ARG NODE_VERSION=20.x
 
-# Instala Node.js (necesario para el frontend de Reflex)
-RUN apt-get update && apt-get install -y \
-    curl \
-    gnupg \
-    unzip \
-    procps \
-    && curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
-    && apt-get install -y nodejs \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# # Instala Node.js (necesario para el frontend de Reflex)
+# RUN apt-get update && apt-get install -y \
+#     curl \
+#     gnupg \
+#     unzip \
+#     procps \
+#     && curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
+#     && apt-get install -y nodejs \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/*
 
-# Crea un usuario no root para seguridad
-RUN adduser --disabled-password --home /app reflex
-RUN python -m venv /app/.venv
+# # Crea un usuario no root para seguridad
+# RUN adduser --disabled-password --home /app reflex
+# RUN python -m venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
 
 # Copia y da permisos
-COPY --chown=reflex:reflex . /app
-RUN chown -R reflex:reflex /app
-USER reflex
+COPY  . /app
+# RUN chown -R reflex:reflex /app
+# USER reflex
 
 # Instala dependencias e inicializa Reflex
 RUN pip install --no-cache-dir -r requirements.txt
