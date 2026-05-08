@@ -30,7 +30,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN reflex init
 
 # Variables de entorno y puertos
-ENV DATABASE_URL=postgresql://postgres:gzifrJcYCUlVhODfQyXxwoWyGovtxFGf@turntable.proxy.rlwy.net:17169/appNotes
+# ENV DATABASE_URL=postgresql://postgres:gzifrJcYCUlVhODfQyXxwoWyGovtxFGf@turntable.proxy.rlwy.net:17169/appNotes
 ENV REFLEX_PORT=8000
 ENV PORT=3000
 EXPOSE 3000
