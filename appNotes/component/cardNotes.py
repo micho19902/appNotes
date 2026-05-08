@@ -60,34 +60,59 @@ def cardNotes(notes: Notes) -> rx.Component:
             color='black'
             ),
             rx.cond(
-        notes.level == 3,
-        rx.box(
-        rx.vstack(
-            rx.text(
-                notes.date
-            ),
-            rx.divider(),
-            rx.hstack(
-            rx.text(
-                notes.note
-            ),
-           
-            rx.button(
-                'Eliminar nota...',
-                on_click=NotesStates.deleteNotes(notes.id),
-                class_name='buttom'
+                notes.level == 3,
+                rx.box(
+                rx.vstack(
+                    rx.text(
+                        notes.date
+                    ),
+                    rx.divider(),
+                    rx.hstack(
+                    rx.text(
+                        notes.note
+                    ),
                 
-            ),
-            justify='between',
-            width='100%',
-            
-            )
-        ),
-        class_name='cardNotes',
-        background_color='green'
-        )
-        
-    )      
+                    rx.button(
+                        'Eliminar nota...',
+                        on_click=NotesStates.deleteNotes(notes.id),
+                        class_name='buttom'
+                        
+                    ),
+                    justify='between',
+                    width='100%',
+                    
+                    )
+                ),
+                class_name='cardNotes',
+                background_color='green'
+                ),
+                rx.box(
+                rx.vstack(
+                    rx.text(
+                        notes.date
+                    ),
+                    rx.divider(),
+                    rx.hstack(
+                    rx.text(
+                        notes.note
+                    ),
+                
+                    rx.button(
+                        'Eliminar nota...',
+                        on_click=NotesStates.deleteNotes(notes.id),
+                        class_name='buttom'
+                        
+                    ),
+                    justify='between',
+                    width='100%',
+                    
+                    )
+                ),
+                class_name='cardNotes',
+                # background_color='green'
+                )
+                
+            )      
         
         )      
     )      
