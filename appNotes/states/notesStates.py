@@ -27,8 +27,7 @@ class NotesStates(rx.State):
     def load_notes(self):
         with rx.session() as session:
             self.notes = session.exec(select(Notes)).all()
-            # print(self.notes)
-
+            
 
     def insertNotes(self):
         insNote = Notes(
