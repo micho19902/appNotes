@@ -51,7 +51,7 @@ def index() -> rx.Component:
             rx.box(
                 rx.foreach(
                     NotesStates.notes,
-                    cardNotes
+                    cardNotes,
 
                 )
             ),
@@ -76,4 +76,4 @@ app = rx.App(style={
         ]
     
 )
-app.add_page(index)
+app.add_page(index, on_load=NotesStates.load_notes)
