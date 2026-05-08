@@ -18,6 +18,8 @@ def formNewNotes() -> rx.Component:
         ),
         rx.hstack(
             rx.text('Fecha'),
+            rx.select(['Alta', 'Media', 'Baja'], placeholder='Seleccionar nivel de importancia...',
+                      on_change=NotesStates.set_level),
             print(fecha)
         )
     )

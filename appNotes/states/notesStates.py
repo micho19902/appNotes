@@ -8,12 +8,21 @@ from ..component.toastNotes import toastNotes
 class NotesStates(rx.State):
     note: str
     date: datetime
-
     notes: list[Notes] = []
+    level: int
 
     async def set_note(self, value:str ):
         self.note = value
 
+    def set_level(self, value:str):
+        if value == 'Alta':
+            self.level = 1
+        elif value == 'Media':
+            self.level = 2
+        elif value == 'Baja':
+            self.level = 3
+        else:
+            self.level = 0
 
     def load_notes(self):
         with rx.session() as session:
@@ -24,7 +33,8 @@ class NotesStates(rx.State):
     def insertNotes(self):
         insNote = Notes(
         note=self.note,
-        date=datetime.now()
+        date=datetime.now(),
+        level=self.level
         )
 
         with rx.session() as session:
