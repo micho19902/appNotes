@@ -3,6 +3,7 @@ FROM python:3.14.4
 WORKDIR /app
 
 # ARG NODE_VERSION=20.x
+ARG DATABASE_URL
 
 # # Instala Node.js (necesario para el frontend de Reflex)
 # RUN apt-get update && apt-get install -y \
@@ -30,7 +31,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN reflex init
 
 # Variables de entorno y puertos
-ENV DATABASE_URL=''
+ENV DATABASE_URL=${DATABASE_URL}
 ENV REFLEX_PORT=8000
 ENV PORT=3000
 EXPOSE 3000
