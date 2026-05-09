@@ -9,6 +9,7 @@ class NotesStates(rx.State):
     note: str
     date: datetime
     notes: list[Notes] = []
+    dictNotes: list[dict] = []
     level: int
 
     async def set_note(self, value:str ):
@@ -21,13 +22,25 @@ class NotesStates(rx.State):
             self.level = 2
         elif value == 'Baja':
             self.level = 3
-        else:
-            self.level = 0
+        # else:
+        #     self.level = 0
 
     def load_notes(self):
         with rx.session() as session:
-            self.notes = session.exec(select(Notes)).all()
+            self.notes = session.exec(select(Notes).order_by(desc(Notes.date))).all()
             
+            self.dictNotes = []
+            for note in self.notes:
+                self.dictNotes.append({
+                    "id": note.id,
+                    "note": note.note,
+                    "date": note.date.strftime("%Y-%m-%d %H:%M"),  # Formateado
+                    "level": note.level,
+                    "user": note.user
+                })
+            # print(self.dictNotes[0]['date'])
+            # self.date = self.dictNotes[0]['date']
+            # print(self.date)
 
     def insertNotes(self):
         insNote = Notes(
@@ -41,8 +54,9 @@ class NotesStates(rx.State):
             session.commit()
 
         self.note = ''
-        self.date = ''
+        # self.date = ''
         self.load_notes()
+        self.level = 0
         
         return rx.toast(
                                 "Nota Insertada!",
