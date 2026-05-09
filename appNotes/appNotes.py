@@ -6,6 +6,12 @@ from datetime import datetime
 from .component.toastNotes import toastNotes
 from .states.notesStates import *
 from .component.cardNotes import cardNotes
+# from .component.regiterUser import register_page
+# from .component.login import login_page
+
+
+
+
 
 # class State(rx.State):
 #     """The app state."""
@@ -45,6 +51,23 @@ def index() -> rx.Component:
                         ),
                     ),
                 ),
+                rx.dialog.root(
+                    rx.dialog.trigger(rx.button(
+                        rx.icon(tag='user'),
+                        class_name='buttom'
+                        ), ),
+                    rx.dialog.content(
+                        # rx.dialog.title("Registrar nuevo Usuarios"),
+                        rx.dialog.description(
+                            
+                            # login_page()
+                        ),
+                        # rx.dialog.close(
+                        #     rx.button("Crear", size="3", class_name='buttom', on_click=NotesStates.insertNotes
+                        #     ),
+                        # ),
+                    ),
+                ),
                 # margin='20px',
                 
             ),
@@ -82,4 +105,6 @@ app = rx.App(style={
         ]
     
 )
+# app.add_page(register_page, route='/register')
+# app.add_page(login_page, route='/login')
 app.add_page(index, on_load=NotesStates.load_notes)

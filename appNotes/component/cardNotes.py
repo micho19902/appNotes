@@ -5,14 +5,14 @@ from ..states.notesStates import NotesStates
 
 def cardNotes(notes: Notes, fecha: NotesStates) -> rx.Component:
     
-    
     return rx.cond(
         notes.level == 1,
         rx.box(
         rx.vstack(
             rx.text(
-                # notes.date
-                NotesStates.dictNotes[0]['date']
+                notes.date
+                # NotesStates.dictNotes[0]['date']
+                # notes.id
             ),
             rx.divider(),
             rx.hstack(
@@ -39,8 +39,8 @@ def cardNotes(notes: Notes, fecha: NotesStates) -> rx.Component:
             rx.box(
             rx.vstack(
                 rx.text(
-                    # notes.date
-                    NotesStates.dictNotes[0]['date']
+                    notes.date
+                    # NotesStates.dictNotes[0]['date']
                 ),
                 rx.divider(),
                 rx.hstack(
@@ -68,8 +68,8 @@ def cardNotes(notes: Notes, fecha: NotesStates) -> rx.Component:
                 rx.box(
                 rx.vstack(
                     rx.text(
-                        # notes.date
-                        NotesStates.dictNotes[0]['date']
+                        notes.date
+                        # NotesStates.dictNotes[0]['date']
                     ),
                     rx.divider(),
                     rx.hstack(
@@ -94,8 +94,8 @@ def cardNotes(notes: Notes, fecha: NotesStates) -> rx.Component:
                 rx.box(
                 rx.vstack(
                     rx.text(
-                        # notes.date
-                        NotesStates.dictNotes[0]['date']
+                        notes.date
+                        # NotesStates.dictNotes[0]['date']
                     ),
                     rx.divider(),
                     rx.hstack(
