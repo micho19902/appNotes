@@ -2,4 +2,5 @@ sqlmodel
 alembic 
 psycopg2-binary 
 python-decouple
+bcrypt
 reflex
