@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def formNewNotes() -> rx.Component:
-    fecha = datetime.now()
+    fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return rx.box(
         rx.text(
             'Nota'
@@ -17,7 +17,7 @@ def formNewNotes() -> rx.Component:
             on_change=NotesStates.set_note
         ),
         rx.hstack(
-            rx.text('Fecha'),
+            rx.text(fecha),
             rx.select(['Alta', 'Media', 'Baja'], placeholder='Seleccionar nivel de importancia...',
                       on_change=NotesStates.set_level),
             print(fecha),
