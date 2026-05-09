@@ -25,22 +25,28 @@ def index() -> rx.Component:
                 sticky='left',
                 margin='20px'
             ),
-            rx.dialog.root(
-                rx.dialog.trigger(rx.button(
-                    rx.icon(tag='plus'),
-                    class_name='buttom'
-                    ), ),
-                rx.dialog.content(
-                    rx.dialog.title("Insertar nueva Nota"),
-                    rx.dialog.description(
-                        
-                        formNewNotes()
-                    ),
-                    rx.dialog.close(
-                        rx.button("Insertar Nota", size="3", class_name='buttom', on_click=NotesStates.insertNotes
+            rx.hstack(
+                rx.color_mode.button(position='rigt'),
+
+                rx.dialog.root(
+                    rx.dialog.trigger(rx.button(
+                        rx.icon(tag='plus'),
+                        class_name='buttom'
+                        ), ),
+                    rx.dialog.content(
+                        rx.dialog.title("Insertar nueva Nota"),
+                        rx.dialog.description(
+                            
+                            formNewNotes()
+                        ),
+                        rx.dialog.close(
+                            rx.button("Insertar Nota", size="3", class_name='buttom', on_click=NotesStates.insertNotes
+                            ),
                         ),
                     ),
                 ),
+                # margin='20px',
+                
             ),
             justify='between',
             width='100%',
@@ -67,7 +73,7 @@ def index() -> rx.Component:
 
 
 app = rx.App(style={
-    'background_color': "#110218"
+    # 'background_color': "#110218"
     },
     stylesheets=[
         'https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap',
