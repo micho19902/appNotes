@@ -28,6 +28,9 @@ COPY  . /app
 
 # Instala dependencias e inicializa Reflex
 RUN pip install --no-cache-dir -r requirements.txt
+RUN reflex db init
+RUN reflex db makemigrations
+RUN reflex db migrate
 RUN reflex init
 
 # Variables de entorno y puertos
