@@ -22,8 +22,6 @@ class NotesStates(rx.State):
             self.level = 2
         elif value == 'Baja':
             self.level = 3
-        # else:
-        #     self.level = 0
 
     def load_notes(self):
         with rx.session() as session:
@@ -34,19 +32,17 @@ class NotesStates(rx.State):
                 self.dictNotes.append({
                     "id": note.id,
                     "note": note.note,
-                    "date": note.date.strftime("%Y-%m-%d %H:%M"),  # Formateado
+                    "date": note.date.strftime('%d'),  # Formateado
                     "level": note.level,
                     "user": note.user
                 })
-            # print(self.dictNotes[0]['date'])
-            # self.date = self.dictNotes[0]['date']
-            # print(self.date)
+            
 
     def insertNotes(self):
         insNote = Notes(
-        note=self.note,
-        date=datetime.now(),
-        level=self.level
+            note=self.note,
+            date=datetime.now(),
+            level=self.level
         )
 
         with rx.session() as session:

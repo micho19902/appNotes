@@ -3,14 +3,15 @@ from ..model.modelNotes import Notes
 from ..states.notesStates import NotesStates
 
 
-def cardNotes(notes: Notes, fecha: NotesStates) -> rx.Component:
-    
+def cardNotes(notes: Notes, note: dict) -> rx.Component:
+
     return rx.cond(
         notes.level == 1,
         rx.box(
         rx.vstack(
             rx.text(
                 notes.date
+                # NotesStates.fechaForm
                 # NotesStates.dictNotes[0]['date']
                 # notes.id
             ),
