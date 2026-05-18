@@ -4,12 +4,13 @@ from ..states.notesStates import NotesStates
 
 
 def cardNotes(notes: Notes, note: dict) -> rx.Component:
-
+    # fecha = NotesStates.dictNotes.get('date','')
     return rx.cond(
         notes.level == 1,
         rx.box(
         rx.vstack(
             rx.text(
+                
                 notes.date
                 # NotesStates.fechaForm
                 # NotesStates.dictNotes[0]['date']
